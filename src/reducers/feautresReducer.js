@@ -1,4 +1,4 @@
-import { TOGGLE_EDITING, ADD_FEATURE, REMOVE_FEATURE } from '../actions/featuresAction'
+import { ADD_FEATURE, REMOVE_FEATURE, UPDATE_PRICE } from '../actions/featuresAction'
 
 export const initialState = {
     additionalPrice: 0,
@@ -38,6 +38,11 @@ export const initialState = {
                     features: state.car.features.filter(f => f.name !== action.payload.name)
                 },
                 additionalFeatures: [...state.additionalFeatures, action.payload]
+            }
+        case UPDATE_PRICE:
+            return {
+                ...state,
+                additionalPrice: state.car.features.map(f => f.price).reduce((a,b) => a+b, 0)
             }
         default:
             return state

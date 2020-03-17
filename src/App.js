@@ -7,7 +7,7 @@ import AdditionalFeatures from './components/AdditionalFeatures';
 import Total from './components/Total';
 
 // import { featuresReducer, initialState } from './reducers/feautresReducer'
-import { addFeature, removeFeature } from './actions/featuresAction';
+import { addFeature, removeFeature, updatePrice } from './actions/featuresAction';
 
 
 
@@ -20,12 +20,14 @@ export const App = props => {
     // dispatch an action here to remove an item
     // dispatch({ type: REMOVE_FEATURE, payload: item });
     props.removeFeature(item)
+    props.updatePrice()
   };
 
   const buyItem = item => {
     // dipsatch an action here to add an item
     // dispatch({ type: ADD_FEATURE, payload: item });
     props.addFeature(item)
+    props.updatePrice()
   };
 
   return (
@@ -50,5 +52,5 @@ const mapStateToProps = state => {
 
 export default connect(
   mapStateToProps,
-  { addFeature, removeFeature}
+  { addFeature, removeFeature, updatePrice }
 )(App)
