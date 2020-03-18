@@ -16,8 +16,12 @@ export const Car = (props) => {
 
   // const [{ additionalPrice, car, additionalFeatures}, dispatch] = useReducer(featuresReducer, initialState)
 
-  //Resetting Data
-  props.setData(props.data);
+  console.log('Props ',props)
+  if(props.data.car.name !== props.car.name){
+    console.log(props.data.car.name, props.car.name, 'Recieved new car data, Should Update')
+    props.setData(props.data)
+  }
+  
   
   const removeFeature = item => {
     // dispatch an action here to remove an item

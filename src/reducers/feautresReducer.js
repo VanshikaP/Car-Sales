@@ -40,11 +40,13 @@ export const initialState = {
                 additionalFeatures: [...state.additionalFeatures, action.payload]
             }
         case UPDATE_PRICE:
+            console.log('Updating Price')
             return {
                 ...state,
                 additionalPrice: state.car.features.map(f => f.price).reduce((a,b) => a+b, 0)
             }
         case SET_CAR:
+            console.log(`Setting Car Data`, action.payload)
             return {
                 ...action.payload
             }
