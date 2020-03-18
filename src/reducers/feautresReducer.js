@@ -1,4 +1,4 @@
-import { ADD_FEATURE, REMOVE_FEATURE, UPDATE_PRICE } from '../actions/featuresAction'
+import { ADD_FEATURE, REMOVE_FEATURE, UPDATE_PRICE, SET_CAR } from '../actions/featuresAction'
 
 export const initialState = {
     additionalPrice: 0,
@@ -43,6 +43,10 @@ export const initialState = {
             return {
                 ...state,
                 additionalPrice: state.car.features.map(f => f.price).reduce((a,b) => a+b, 0)
+            }
+        case SET_CAR:
+            return {
+                ...action.payload
             }
         default:
             return state
